@@ -29,7 +29,7 @@ class Autocomplete {
   _registerClient() {
     this._searchClient = algoliasearch(
       '0MKVCO6YDU',
-      '3f6b73a996909f53f2d2a7a658f299e5'
+      '4539771665517b84023e9077034bf98a'
     );
 
     this._searchInstance = instantsearch({
