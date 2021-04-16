@@ -7,6 +7,7 @@ import { hits, searchBox, configure, refinementList, index } from 'instantsearch
 
 // Autocomplete Template
 import autocompleteProductTemplate from '../templates/autocomplete-product';
+import autocompleteSuggestionTemplate from '../templates/suggestion-template';
 
 /**
  * @class Autocomplete
@@ -55,37 +56,29 @@ class Autocomplete {
       }),
       hits({
         container: '#autocomplete-hits',
-        templates:
-        // {
-        //   empty: "No results.",
-        //   item: function(hit) {
-        //     return hitTemplate(hit);
-        //   }
-        // }
-        { item: autocompleteProductTemplate },
+        templates: { item: autocompleteProductTemplate }
+          // empty: "No results.",
+
+          // function(hit) {
+          //   return hitTemplate(hit);
+          // }
+        // { item: autocompleteProductTemplate }
       }),
-      index({
-        indexName: 'test_INDEX_query_suggestions'
-      }).addWidgets([
-        hits({
-          container: '#autocomplete-suggestion-hits',
-          templates:
-          // { item: autocompleteProductTemplate },
-            { item:
-              '{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}' },
-        }),
-        configure({
-          hitsPerPage: 4,
-        }),
-      ]),
-      // refinementList({
-      //   container: '#categories',
-      //   attribute: 'categories',
-      //   autoHideContainer: false,
-      //   templates: {
-      //     header: 'Categories'
-      //   }
-      // })
+      // index({
+      //   indexName: 'test_INDEX_query_suggestions'
+      // }).addWidgets([
+      //   hits({
+      //     container: '#autocomplete-suggestion-hits',
+      //     templates:
+      //       { item: autocompleteSuggestionTemplate },
+      //       // { item:
+      //       //   '{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}'
+      //       // },
+      //   }),
+      //   configure({
+      //     hitsPerPage: 4,
+      //   }),
+      // ]),
     ]);
   }
 
