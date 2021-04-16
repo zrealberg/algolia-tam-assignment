@@ -56,29 +56,27 @@ class Autocomplete {
       }),
       hits({
         container: '#autocomplete-hits',
-        templates: { item: autocompleteProductTemplate }
-          // empty: "No results.",
-
-          // function(hit) {
-          //   return hitTemplate(hit);
-          // }
-        // { item: autocompleteProductTemplate }
+        templates: {
+          empty: "No results.",
+          item: autocompleteProductTemplate
+        }
       }),
-      // index({
-      //   indexName: 'test_INDEX_query_suggestions'
-      // }).addWidgets([
-      //   hits({
-      //     container: '#autocomplete-suggestion-hits',
-      //     templates:
-      //       { item: autocompleteSuggestionTemplate },
-      //       // { item:
-      //       //   '{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}'
-      //       // },
-      //   }),
-      //   configure({
-      //     hitsPerPage: 4,
-      //   }),
-      // ]),
+      index({
+        indexName: 'test_INDEX_query_suggestions'
+      }).addWidgets([
+        hits({
+          container: '#autocomplete-suggestion-hits',
+          templates: {
+            empty: "No results.",
+            item: autocompleteSuggestionTemplate },
+            // { item:
+            //   '{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}'
+            // },
+        }),
+        configure({
+          hitsPerPage: 4,
+        }),
+      ]),
     ]);
   }
 
