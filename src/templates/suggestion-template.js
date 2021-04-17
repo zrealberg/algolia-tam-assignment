@@ -1,5 +1,5 @@
 const autocompleteProductSuggestion = (hit) => {
-  console.log('suggestion hit', hit.name);
+  console.log('suggestion hit', hit);
   return (
     `<div class="autocomplete-product">
       <div class="autocomplete-product__image-container">

@@ -52,7 +52,10 @@ class Autocomplete {
       }),
       searchBox({
         container: '#searchbox',
-        placeholder: "Search for products"
+        placeholder: "Search for products",
+        showReset: true,
+        showSubmit: true,
+        showLoadingIndicator: true,
       }),
       hits({
         container: '#autocomplete-hits',
@@ -62,7 +65,7 @@ class Autocomplete {
         }
       }),
       index({
-        indexName: 'test_INDEX_query_suggestions'
+        indexName: 'demo_ecommerce_query_suggestions2'
       }).addWidgets([
         hits({
           container: '#autocomplete-suggestion-hits',
