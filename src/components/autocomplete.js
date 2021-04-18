@@ -53,9 +53,9 @@ class Autocomplete {
       searchBox({
         container: '#searchbox',
         placeholder: "Search for products",
-        showReset: true,
-        showSubmit: true,
-        showLoadingIndicator: true,
+        // showReset: true,
+        // showSubmit: true,
+        // showLoadingIndicator: true,
       }),
       hits({
         container: '#autocomplete-hits',

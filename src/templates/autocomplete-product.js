@@ -1,7 +1,5 @@
 const autocompleteProduct = (hit) => {
-  // console.log('name', hit._highlightResult.name)
-  // if (hit._highlightResult.name) {
-
+  console.log('autocomplete-product', hit)
     return (
       `<div class="autocomplete-product">
         <div class="autocomplete-product__image-container">
@@ -15,7 +13,6 @@ const autocompleteProduct = (hit) => {
         </div>
       </div>`
     )
-  // }
 }
 
 export default autocompleteProduct;
