@@ -1,5 +1,6 @@
 import Autocomplete from './components/autocomplete';
 
+
 class SpencerAndWilliamsSearch {
   constructor() {
     this._initSearch();
@@ -16,10 +17,12 @@ class SpencerAndWilliamsSearch {
 
     searchbox.addEventListener('click', () => {
       autocomplete.style.display = 'block';
+      console.log('click');
     });
 
     searchbox.addEventListener('blur', () => {
       autocomplete.style.display = 'none';
+      console.log('blur')
     });
   }
 }

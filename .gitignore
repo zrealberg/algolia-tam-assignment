@@ -9,6 +9,7 @@
 # production
 /dist
 /.cache
+/data
 
 # misc
 .DS_Store

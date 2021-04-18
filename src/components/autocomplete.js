@@ -1,11 +1,13 @@
 import algoliasearch from 'algoliasearch';
 import instantsearch from 'instantsearch.js';
+import { hitTemplate } from "./helpers";
 
 // Instant Search Widgets
-import { hits, searchBox, configure } from 'instantsearch.js/es/widgets';
+import { hits, searchBox, configure, refinementList, index } from 'instantsearch.js/es/widgets';
 
 // Autocomplete Template
 import autocompleteProductTemplate from '../templates/autocomplete-product';
+import autocompleteSuggestionTemplate from '../templates/suggestion-template';
 
 /**
  * @class Autocomplete
@@ -28,12 +30,12 @@ class Autocomplete {
    */
   _registerClient() {
     this._searchClient = algoliasearch(
-      'VYLEWMPKEZ',
-      '8940a18fde155adf3f74b0912c267aa4'
+      '0MKVCO6YDU',
+      '4539771665517b84023e9077034bf98a'
     );
 
     this._searchInstance = instantsearch({
-      indexName: 'ecommerce-v2',
+      indexName: 'test_INDEX',
       searchClient: this._searchClient,
     });
   }
@@ -46,15 +48,38 @@ class Autocomplete {
   _registerWidgets() {
     this._searchInstance.addWidgets([
       configure({
-        hitsPerPage: 3,
+        hitsPerPage: 6,
       }),
       searchBox({
         container: '#searchbox',
+        placeholder: "Search for products",
+        // showReset: true,
+        // showSubmit: true,
+        // showLoadingIndicator: true,
       }),
       hits({
         container: '#autocomplete-hits',
-        templates: { item: autocompleteProductTemplate },
+        templates: {
+          empty: "No results.",
+          item: autocompleteProductTemplate
+        }
       }),
+      index({
+        indexName: 'demo_ecommerce_query_suggestions2'
+      }).addWidgets([
+        hits({
+          container: '#autocomplete-suggestion-hits',
+          templates: {
+            empty: "No results.",
+            item: autocompleteSuggestionTemplate },
+            // { item:
+            //   '{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}'
+            // },
+        }),
+        configure({
+          hitsPerPage: 4,
+        }),
+      ]),
     ]);
   }
 
@@ -65,6 +90,7 @@ class Autocomplete {
    */
   _startSearch() {
     this._searchInstance.start();
+    // console.log('startSearch');
   }
 }
 
