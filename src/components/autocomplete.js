@@ -1,4 +1,5 @@
-import algoliasearch from 'algoliasearch';
+// import algoliasearch from 'algoliasearch';
+const algoliasearch = require('algoliasearch');
 import instantsearch from 'instantsearch.js';
 import { hitTemplate } from "./helpers";
 
