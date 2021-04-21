@@ -16,12 +16,12 @@ class SpencerAndWilliamsSearch {
     const searchbox = document.querySelector('#searchbox input');
 
     searchbox.addEventListener('click', () => {
-      autocomplete.style.display = 'block';
+      // autocomplete.style.display = 'block';
       console.log('click');
     });
 
     searchbox.addEventListener('blur', () => {
-      autocomplete.style.display = 'none';
+      // autocomplete.style.display = 'none';
       console.log('blur')
     });
   }

@@ -59,7 +59,7 @@ class Autocomplete {
         // showLoadingIndicator: true,
       }),
       hits({
-        container: '#autocomplete-hits',
+        container: '#hitsZ',
         templates: {
           empty: "No results.",
           item: autocompleteProductTemplate
@@ -69,13 +69,10 @@ class Autocomplete {
         indexName: 'demo_ecommerce_query_suggestions2'
       }).addWidgets([
         hits({
-          container: '#autocomplete-suggestion-hits',
+          container: '#suggestionsZ',
           templates: {
             empty: "No results.",
             item: autocompleteSuggestionTemplate },
-            // { item:
-            //   '{{#helpers.highlight}}{ "attribute": "name" }{{/helpers.highlight}}'
-            // },
         }),
         configure({
           hitsPerPage: 4,

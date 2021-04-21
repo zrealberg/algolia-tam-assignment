@@ -65,7 +65,7 @@
 
 /* Autocomplete */
 .autocomplete {
-  display: none;
+  display: block;
   background-color: #fff;
   padding: 20px;
   z-index: 99;
@@ -157,4 +157,10 @@
   top: 200px;
   /* position: ; */
   /* border: 3px solid green; */
+}
+
+.hits_type_header {
+  /* position: ; */
+  display: block;
+  top: 20%;
 }
