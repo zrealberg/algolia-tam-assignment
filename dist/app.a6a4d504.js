@@ -18683,18 +18683,7 @@ Object.defineProperty(instantsearch, 'connectors', {
 });
 var _default = instantsearch;
 exports.default = _default;
-},{"./lib/InstantSearch":"node_modules/instantsearch.js/es/lib/InstantSearch.js","./lib/version":"node_modules/instantsearch.js/es/lib/version.js","./helpers":"node_modules/instantsearch.js/es/helpers/index.js","./lib/infiniteHitsCache":"node_modules/instantsearch.js/es/lib/infiniteHitsCache/index.js"}],"src/components/helpers.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.hitTemplate = hitTemplate;
-
-function hitTemplate(hit) {
-  return "\n    <div class=\"hit\">\n      <div class=\"hit-image\">\n        <img src=\"".concat(hit.image, "\" />\n      </div>\n      <div class=\"hit-content\">\n        <div>\n          <div class=\"hit-name\">").concat(hit._highlightResult.name.value, "</div>\n          <div class=\"hit-description\">").concat(hit._snippetResult.description.value, "</div>\n        </div>\n        <div class=\"hit-price\">").concat(hit.price, "</div>\n      </div>\n    </div>\n  ");
-}
-},{}],"node_modules/preact/dist/preact.module.js":[function(require,module,exports) {
+},{"./lib/InstantSearch":"node_modules/instantsearch.js/es/lib/InstantSearch.js","./lib/version":"node_modules/instantsearch.js/es/lib/version.js","./helpers":"node_modules/instantsearch.js/es/helpers/index.js","./lib/infiniteHitsCache":"node_modules/instantsearch.js/es/lib/infiniteHitsCache/index.js"}],"node_modules/preact/dist/preact.module.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36524,7 +36513,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var autocompleteProduct = function autocompleteProduct(hit) {
-  // console.log('autocomplete-product', hit)
   return "<div class=\"autocomplete-product\">\n        <div class=\"autocomplete-product__image-container\">\n          <img class=\"autocomplete-product__image\" src=\"".concat(hit.image, "\" />\n        </div>\n        <div class=\"autocomplete-product__details\">\n          <h3 class=\"autocomplete-product__name\">").concat(hit._highlightResult.name.value, "</h3>\n          <p class=\"autocomplete-product__price\">$").concat(hit.price, "</p>\n        </div>\n      </div>");
 };
 
@@ -36539,7 +36527,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var autocompleteProductSuggestion = function autocompleteProductSuggestion(hit) {
-  // console.log('suggestion-template hit', hit);
   return "<div class=\"autocomplete-product\">\n      <div class=\"autocomplete-product__details\">\n        <h3 class=\"autocomplete-product__name\">".concat(hit.query, "</h3>\n      </div>\n    </div>");
 };
 
@@ -36554,8 +36541,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _instantsearch = _interopRequireDefault(require("instantsearch.js"));
-
-var _helpers = require("./helpers");
 
 var _widgets = require("instantsearch.js/es/widgets");
 
@@ -36617,13 +36602,10 @@ var Autocomplete = /*#__PURE__*/function () {
     key: "_registerWidgets",
     value: function _registerWidgets() {
       this._searchInstance.addWidgets([(0, _widgets.configure)({
-        hitsPerPage: 6
+        hitsPerPage: 10
       }), (0, _widgets.searchBox)({
         container: '#searchbox',
-        placeholder: "Search for products" // showReset: true,
-        // showSubmit: true,
-        // showLoadingIndicator: true,
-
+        placeholder: "Search for products"
       }), (0, _widgets.hits)({
         container: '#hits_li',
         templates: {
@@ -36639,7 +36621,7 @@ var Autocomplete = /*#__PURE__*/function () {
           item: _suggestionTemplate.default
         }
       }), (0, _widgets.configure)({
-        hitsPerPage: 4
+        hitsPerPage: 10
       })])]);
     }
     /**
@@ -36651,8 +36633,7 @@ var Autocomplete = /*#__PURE__*/function () {
   }, {
     key: "_startSearch",
     value: function _startSearch() {
-      this._searchInstance.start(); // console.log('startSearch');
-
+      this._searchInstance.start();
     }
   }]);
 
@@ -36661,7 +36642,7 @@ var Autocomplete = /*#__PURE__*/function () {
 
 var _default = Autocomplete;
 exports.default = _default;
-},{"algoliasearch":"node_modules/algoliasearch/src/browser/builds/algoliasearch.js","instantsearch.js":"node_modules/instantsearch.js/es/index.js","./helpers":"src/components/helpers.js","instantsearch.js/es/widgets":"node_modules/instantsearch.js/es/widgets/index.js","../templates/autocomplete-product":"src/templates/autocomplete-product.js","../templates/suggestion-template":"src/templates/suggestion-template.js"}],"src/app.js":[function(require,module,exports) {
+},{"algoliasearch":"node_modules/algoliasearch/src/browser/builds/algoliasearch.js","instantsearch.js":"node_modules/instantsearch.js/es/index.js","instantsearch.js/es/widgets":"node_modules/instantsearch.js/es/widgets/index.js","../templates/autocomplete-product":"src/templates/autocomplete-product.js","../templates/suggestion-template":"src/templates/suggestion-template.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _autocomplete = _interopRequireDefault(require("./components/autocomplete.js"));
@@ -36734,7 +36715,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51190" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62380" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

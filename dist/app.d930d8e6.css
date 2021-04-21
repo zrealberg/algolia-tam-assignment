@@ -15,6 +15,10 @@
   border: 0;
 }
 
+.ais-Hits--empty {
+  padding-left: 16px;
+}
+
 /* Header */
 .header {
   position: fixed;

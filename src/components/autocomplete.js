@@ -1,7 +1,6 @@
 // import algoliasearch from 'algoliasearch';
 const algoliasearch = require('algoliasearch');
 import instantsearch from 'instantsearch.js';
-import { hitTemplate } from "./helpers";
 
 // Instant Search Widgets
 import { hits, searchBox, configure, refinementList, index } from 'instantsearch.js/es/widgets';
@@ -49,14 +48,11 @@ class Autocomplete {
   _registerWidgets() {
     this._searchInstance.addWidgets([
       configure({
-        hitsPerPage: 6,
+        hitsPerPage: 10,
       }),
       searchBox({
         container: '#searchbox',
         placeholder: "Search for products",
-        // showReset: true,
-        // showSubmit: true,
-        // showLoadingIndicator: true,
       }),
       hits({
         container: '#hits_li',
@@ -75,7 +71,7 @@ class Autocomplete {
             item: autocompleteSuggestionTemplate },
         }),
         configure({
-          hitsPerPage: 4,
+          hitsPerPage: 10,
         }),
       ]),
     ]);
@@ -88,7 +84,6 @@ class Autocomplete {
    */
   _startSearch() {
     this._searchInstance.start();
-    // console.log('startSearch');
   }
 }
 

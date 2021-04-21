@@ -1,5 +1,4 @@
 const resultHit = hit => {
-  // console.log('result-hit', hit);
   return (
 
     `<div class="result-hit">

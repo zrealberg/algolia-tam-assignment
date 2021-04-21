@@ -1,5 +1,4 @@
 const autocompleteProduct = (hit) => {
-  // console.log('autocomplete-product', hit)
     return (
       `<div class="autocomplete-product">
         <div class="autocomplete-product__image-container">
