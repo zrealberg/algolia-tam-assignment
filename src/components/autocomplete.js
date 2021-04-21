@@ -59,7 +59,7 @@ class Autocomplete {
         // showLoadingIndicator: true,
       }),
       hits({
-        container: '#hitsZ',
+        container: '#hits_li',
         templates: {
           empty: "No results.",
           item: autocompleteProductTemplate
@@ -69,7 +69,7 @@ class Autocomplete {
         indexName: 'demo_ecommerce_query_suggestions2'
       }).addWidgets([
         hits({
-          container: '#suggestionsZ',
+          container: '#suggestions_li',
           templates: {
             empty: "No results.",
             item: autocompleteSuggestionTemplate },
